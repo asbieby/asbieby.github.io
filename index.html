@@ -1,76 +1,656 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fachrizal Hasbi | Backend & Infrastructure Engineer</title>
+  <meta name="description" content="Portfolio Fachrizal Hasbi - Backend dan Full-Stack Engineer dengan pengalaman Laravel, Docker, Proxmox, monitoring, cloud, dan security.">
+  <style>
+    :root {
+      --bg: #0c1117;
+      --panel: rgba(13, 24, 33, 0.82);
+      --panel-strong: #111b24;
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #eff5f8;
+      --muted: #a8b8c2;
+      --accent: #ffb84d;
+      --accent-2: #39c6b3;
+      --accent-3: #ff7f50;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      --radius: 22px;
+    }
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <br>
-    <br>
-    <br>
-    <br>
-    <title>Web ss Fhasbi</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  </head>
-  <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <h1>Hello,sssss I am Fachrizal Hasbi</h1>
-            <p>
-                <a class="btn btn-primary" data-bs-toggle="collapse" href="#contactExample" role="button" aria-expanded="false" aria-controls="contactExample">
-                    Contact
-                </a>
-                <a class="btn btn-primary" data-bs-toggle="collapse" href="#gitExamples" role="button" aria-expanded="false" aria-controls="gitExamples">
-                    Portofolio
-                </a>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#socialmediaExample" aria-expanded="false" aria-controls="socialmediaExample">
-                    Social Media
-                </button>
-            </p>
-                <div class="collapse" id="contactExample">
-                    <div class="card card-body">
-                            <h10>├── Domisili :</h10>
-                                <h10>| | └── Kalimantan Timur - Samarinda</h10>
-                            <h10>├── Email :</h10>
-                                <h10>| | └── asbieby@gmail.com</h10>
-                            <h10>└── Kontak Telegram/</h10>
-                                <h10>| | └── <a href="https://t.me/fkindi" target="_blank">Telegram Fhasbi</a></h10>
-                    </div>
-                </div>
-                <div class="collapse" id="gitExamples">
-                    <div class="card card-body">
-                      <h10>├── Github :</h10>
-                                <h10>| | └── <a href="https://github.com/asbieby" target="_blank">Link Github</a></h10>
-                      <h10>├── Gitlab :</h10>
-                                <h10>| | └── <a href="https://gitlab.com/fkindi" target="_blank">Link Gitlab</a></h10>
-                      <h10>├── Portofolio :</h10>
-                                <h10>| | └── <a href="####" target="_blank">Download Portofolio</a></h10>
-                    </div>
-                </div>
-                <div class="collapse" id="socialmediaExample">
-                    <div class="card card-body">
-                      <h10>├── Twitter :</h10>
-                                <h10>| | └── <a href="https://mobile.twitter.com/topeng_warik" target="_blank">Link Twitter</a></h10>
-                      <h10>├── Facebook :</h10>
-                                <h10>| | └── <a href="https://www.facebook.com/dreadyby.asbie" target="_blank">Link Facebook</a></h10>
-                      <h10>├── Instgram :</h10>
-                                <h10>| | └── <a href="https://www.instagram.com/asbieby/?hl=en" target="_blank">Link Instgram</a></h10> 
-                    </div>
-                </div>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 184, 77, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(57, 198, 179, 0.14), transparent 20%),
+        radial-gradient(circle at 50% 120%, rgba(255, 127, 80, 0.16), transparent 24%),
+        linear-gradient(180deg, #0a1015 0%, #0c1117 48%, #101923 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(60px);
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 240px;
+      height: 240px;
+      top: 7rem;
+      right: -5rem;
+      background: rgba(255, 184, 77, 0.22);
+    }
+
+    body::after {
+      width: 300px;
+      height: 300px;
+      bottom: -6rem;
+      left: -4rem;
+      background: rgba(57, 198, 179, 0.18);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 72px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      margin-top: 12px;
+      background: rgba(8, 13, 18, 0.56);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand span,
+    .nav-links a,
+    .meta-note,
+    .card p,
+    .list li,
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .nav-links a,
+    .contact-links a,
+    .hero-actions a {
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 0.94rem;
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover,
+    .contact-links a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.45fr 0.95fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 26px;
+    }
+
+    .hero-main,
+    .hero-side,
+    .section-card,
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 38px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -100px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255, 184, 77, 0.18), transparent 65%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 184, 77, 0.1);
+      border: 1px solid rgba(255, 184, 77, 0.22);
+      color: #ffd08a;
+      font-size: 0.84rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      animation: rise 0.7s ease both;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(255, 184, 77, 0.8);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-top: 20px;
+      animation: rise 0.85s ease both;
+      animation-delay: 0.08s;
+    }
+
+    .hero-main p {
+      max-width: 62ch;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 20px 0 0;
+      animation: rise 0.95s ease both;
+      animation-delay: 0.14s;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      animation: rise 1.05s ease both;
+      animation-delay: 0.2s;
+    }
+
+    .hero-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .hero-actions .primary {
+      background: linear-gradient(135deg, var(--accent), #ff8d5c);
+      color: #10161d;
+    }
+
+    .hero-actions .secondary {
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      animation: rise 0.9s ease both;
+    }
+
+    .metric:nth-child(2) { animation-delay: 0.12s; }
+    .metric:nth-child(3) { animation-delay: 0.2s; }
+    .metric:nth-child(4) { animation-delay: 0.28s; }
+
+    .metric strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--text);
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .section-card {
+      padding: 28px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title p {
+      max-width: 58ch;
+      margin: 8px 0 0;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      min-height: 100%;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      font-size: 0.94rem;
+    }
+
+    .tag.alt {
+      background: rgba(57, 198, 179, 0.1);
+      border-color: rgba(57, 198, 179, 0.22);
+      color: #98efe2;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .list li {
+      line-height: 1.7;
+    }
+
+    .contact-card {
+      padding: 30px;
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .contact-card h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .contact-card p {
+      line-height: 1.8;
+      margin: 16px 0 0;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-links a {
+      display: block;
+      padding: 15px 16px;
+      border-radius: 16px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      word-break: break-word;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 22px 4px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .contact-card,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .shell {
+        width: min(100% - 24px, 1120px);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-main,
+      .hero-side,
+      .section-card,
+      .contact-card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="nav">
+      <div class="brand">
+        <strong>Fachrizal Hasbi</strong>
+        <span>Backend / Full-Stack Engineer</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#tentang">Tentang</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#cara-kerja">Cara Kerja</a>
+        <a href="#sertifikasi">Sertifikasi</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="tentang">
+      <article class="hero-main">
+        <div class="eyebrow">Backend, Infrastruktur, Monitoring, Cloud</div>
+        <h1>Membangun sistem backend dan infrastruktur yang rapi, stabil, dan siap dipakai.</h1>
+        <p>
+          Saya adalah Backend dan Full-Stack Engineer dengan pengalaman membangun aplikasi bisnis,
+          sistem operasional, dan infrastruktur pendukung menggunakan Laravel, PostgreSQL, Docker,
+          Proxmox, MinIO, Grafana, dan Prometheus. Saya nyaman bekerja dari sisi pengembangan aplikasi
+          sampai deployment, monitoring, dan operasional sistem agar solusi yang dibuat tidak hanya berjalan,
+          tetapi juga mudah dipelihara dan dikembangkan.
+        </p>
+        <div class="hero-actions">
+          <a class="primary" href="#kontak">Hubungi Saya</a>
+          <a class="secondary" href="./CV_FH.md" target="_blank" rel="noreferrer">Lihat CV</a>
+          <a class="secondary" href="https://github.com/asbieby" target="_blank" rel="noreferrer">Lihat GitHub</a>
         </div>
-    </div>
+      </article>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+      <aside class="hero-side">
+        <div class="metric">
+          <strong>Laravel</strong>
+          <span>Pengembangan backend, REST API, autentikasi, queue, scheduler, dan workflow operasional.</span>
+        </div>
+        <div class="metric">
+          <strong>Docker & Proxmox</strong>
+          <span>Deployment multi-service, LXC, monitoring server, database host, dan object storage.</span>
+        </div>
+        <div class="metric">
+          <strong>Grafana & Prometheus</strong>
+          <span>Observability untuk server, service, database, dan kesehatan disk secara terstruktur.</span>
+        </div>
+        <div class="metric">
+          <strong>Cloud & Security</strong>
+          <span>Kemampuan AWS fundamentals, CEH, Wazuh SIEM, serta pengalaman storage dan remote access multi-site.</span>
+        </div>
+      </aside>
+    </section>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <section class="section" id="keahlian">
+      <div class="section-card">
+        <div class="section-title">
+          <div>
+            <h2>Keahlian Utama</h2>
+            <p>Fokus saya ada pada software yang dekat dengan kebutuhan operasional nyata, dari backend aplikasi sampai infrastruktur pendukungnya.</p>
+          </div>
+        </div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-  </body>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Backend</h3>
+            <p>Laravel, PHP, REST API, Laravel Sanctum, role-based access, queue, scheduler, dashboard web, dan integrasi service.</p>
+            <div class="stack">
+              <span class="tag">Laravel</span>
+              <span class="tag">PHP</span>
+              <span class="tag">REST API</span>
+              <span class="tag">Sanctum</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Data & Storage</h3>
+            <p>Pengelolaan PostgreSQL, MySQL, Redis, backup, restore, object storage, dan integrasi file berbasis S3-compatible storage.</p>
+            <div class="stack">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Redis</span>
+              <span class="tag">MinIO</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Infrastructure</h3>
+            <p>Docker, Docker Compose, Nginx, Linux server, VPS deployment, Proxmox VE, LXC, observability, dan security monitoring.</p>
+            <div class="stack">
+              <span class="tag">Docker</span>
+              <span class="tag">Proxmox</span>
+              <span class="tag">Grafana</span>
+              <span class="tag">Prometheus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cara-kerja">
+      <div class="section-card">
+        <div class="section-title">
+          <div>
+            <h2>Cara Saya Bekerja</h2>
+            <p>Saya tidak menampilkan nama client di sini, tetapi berikut adalah pola kerja dan jenis solusi yang biasa saya kerjakan.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Application Engineering</h3>
+            <ul class="list">
+              <li>Mengembangkan aplikasi web operasional dan backend API untuk kebutuhan bisnis, administrasi, monitoring, dan pelaporan.</li>
+              <li>Merancang arsitektur multi-service dengan pemisahan app, database, cache, queue, scheduler, dan object storage.</li>
+              <li>Mengimplementasikan autentikasi, role-based access, session handling, dan API token untuk kebutuhan multi-user dan multi-platform.</li>
+              <li>Menghubungkan backend utama dengan service pendukung berbasis Node.js atau Go untuk automation, webhook, dan integrasi internal.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deployment & Operations</h3>
+            <ul class="list">
+              <li>Menyiapkan environment Docker dan Docker Compose untuk development, staging, dan deployment server.</li>
+              <li>Mengelola PostgreSQL, MySQL, Redis, dan object storage untuk transaksi aplikasi, cache, queue, serta file handling.</li>
+              <li>Menangani deployment di Linux server dan VPS, termasuk update code, build asset, dependency install, restart service, dan verifikasi pasca-deploy.</li>
+              <li>Mengelola environment virtualisasi berbasis Proxmox dan LXC untuk aplikasi, database, monitoring, dan object storage.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Monitoring & Reliability</h3>
+            <ul class="list">
+              <li>Membangun monitoring server menggunakan Grafana, Prometheus, Node Exporter, dan smartctl_exporter.</li>
+              <li>Menangani backup, restore, migrasi storage, serta sinkronisasi object storage untuk menjaga ketersediaan data.</li>
+              <li>Menyusun akses remote multi-site menggunakan ZeroTier dan jump host agar lebih aman dan mudah dikelola.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Security & Growth</h3>
+            <ul class="list">
+              <li>Menyiapkan monitoring keamanan server menggunakan Wazuh SIEM untuk meningkatkan visibility kondisi sistem.</li>
+              <li>Memiliki fondasi tambahan di cloud, security, dan data untuk mendukung pengembangan sistem yang lebih modern dan terukur.</li>
+              <li>Terbiasa bekerja di area backend, infrastruktur, cloud, security, dan data foundation secara bersamaan.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sertifikasi">
+      <div class="section-card">
+        <div class="section-title">
+          <div>
+            <h2>Sertifikasi & Pembelajaran</h2>
+            <p>Sertifikasi ini memperkuat fondasi saya di area cloud, security, dan data sebagai pelengkap pengalaman teknis sehari-hari.</p>
+          </div>
+        </div>
+
+        <div class="stack">
+          <span class="tag alt">Certified Ethical Hacker (CEH)</span>
+          <span class="tag alt">Data Science Bootcamp</span>
+          <span class="tag alt">AWS Fundamentals</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">EDA</span>
+          <span class="tag">Machine Learning Basic</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-card" id="kontak">
+      <div>
+        <h2>Siap berdiskusi untuk backend, infrastruktur, atau sistem operasional.</h2>
+        <p>
+          Jika kamu sedang mencari engineer yang nyaman bekerja di area aplikasi dan infrastruktur
+          sekaligus, saya terbuka untuk diskusi lebih lanjut.
+        </p>
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:saya@f-hasbi.my.id">saya@f-hasbi.my.id</a>
+        <a href="tel:+6285117704581">085117704581</a>
+        <a href="https://www.linkedin.com/in/fachrizal-hasbi" target="_blank" rel="noreferrer">linkedin.com/in/fachrizal-hasbi</a>
+        <a href="https://github.com/asbieby" target="_blank" rel="noreferrer">github.com/asbieby</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Fachrizal Hasbi</span>
+      <span class="meta-note">Backend Engineer with Infrastructure, Monitoring, Cloud, and Security Foundation</span>
+    </footer>
+  </div>
+</body>
 </html>
